@@ -14,7 +14,7 @@
     <p>标题:{{item.title}}</p>
     <p>
       <span>作者:{{item.username}}</span>
-      <span>时间:{{item.dateline}}</span>
+      <span>时间:{{ helper.format(item.dateline) }}</span>
     </p>
   </li> 
 {% endfor %}
