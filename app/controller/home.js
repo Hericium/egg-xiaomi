@@ -4,8 +4,9 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    await this.ctx.render('index.html', {
-      data: 'world',
+    const list = await this.service.news.getNewsList();
+    await this.ctx.render('index.tpl', {
+      list,
     });
   }
 }

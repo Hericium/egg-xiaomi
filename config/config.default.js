@@ -11,10 +11,13 @@ module.exports = appInfo => {
 
   // 配置ejs
   config.view = {
+    defaultViewEngine: 'nunjucks',
     mapping: {
-      '.html': 'ejs',
+      '.tpl': 'nunjucks',
     },
   };
 
+  // 接口api
+  config.api = 'http://www.phonegap100.com/';
   return config;
 };

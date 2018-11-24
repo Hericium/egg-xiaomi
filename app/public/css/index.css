@@ -1,0 +1,8 @@
+li {
+ list-style-type: none;
+}
+
+p {
+  height: 28px;
+  line-height: 28px;
+}
