@@ -17,6 +17,18 @@ module.exports = appInfo => {
     },
   };
 
+  // 中间件
+  exports.middleware = [
+    'robot',
+  ];
+  // middleware config
+  config.robot = {
+    ip: [
+      '127.0.0.1',
+      '192.168.0.1',
+    ],
+  };
+
   // 接口api
   config.api = 'http://www.phonegap100.com/';
   return config;
