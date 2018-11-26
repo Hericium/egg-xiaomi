@@ -19,7 +19,7 @@ module.exports = appInfo => {
 
   // 中间件
   exports.middleware = [
-    'robot',
+    'robot', 'compress',
   ];
   // middleware config
   config.robot = {
@@ -27,6 +27,11 @@ module.exports = appInfo => {
       '127.0.0.2',
       '192.168.31.48',
     ],
+  };
+
+  // gzip 配置
+  config.compress = {
+    threshold: 1,
   };
 
   // 开发时关闭安全验证

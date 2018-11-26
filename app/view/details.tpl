@@ -9,5 +9,6 @@
 <body>
   <p>{{list.title}}</p>
   <p>{{list.content | safe}}</p>
+  {{name}}
 </body>
 </html>

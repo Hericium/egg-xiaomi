@@ -9,6 +9,7 @@
     "egg-scripts": "^2.5.0",
     "egg-validate": "^2.0.2",
     "egg-view-nunjucks": "^2.2.0",
+    "koa-compress": "^3.0.0",
     "moment": "^2.22.2"
   },
   "devDependencies": {

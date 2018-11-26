@@ -1,6 +1,7 @@
 'use strict';
 // app/middleware/robot.js
 // options === app.config.robot
+// 限制IP中间件
 module.exports = options => {
   return async function robotMiddleware(ctx, next) {
     const { ip: ips } = options;
