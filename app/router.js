@@ -12,4 +12,7 @@ module.exports = app => {
   // 提交post csrf
   router.get('/post', controller.post.index);
   router.post('/post', controller.post.add);
+
+  // restful
+  router.post('api/v1/user', 'v1.user.create');
 };
