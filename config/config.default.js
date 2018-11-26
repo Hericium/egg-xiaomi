@@ -29,6 +29,18 @@ module.exports = appInfo => {
     ],
   };
 
+  // 开发时关闭安全验证
+  config.security = {
+    csrf: {
+      enable: false,
+    },
+    domainWhiteList: [
+      'http://127.0.0.1:8080',
+      'http://localhost:8080',
+    ],
+  };
+
+
   // 接口api
   config.api = 'http://www.phonegap100.com/';
   return config;
