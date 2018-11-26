@@ -10,6 +10,12 @@ class PostController extends Controller {
   async add() {
     this.ctx.body = this.ctx.request.body;
   }
+
+  // 清除cookies
+  async deleteCookies() {
+    this.ctx.cookies.set('name', null);
+    this.ctx.redirect('/post');
+  }
 }
 
 module.exports = PostController;

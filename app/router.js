@@ -6,13 +6,17 @@
 module.exports = app => {
   const { router, controller } = app;
   // 爬虫新闻网站
-  router.get('/', controller.home.index);
-  router.get('/details', controller.details.index);
+  router.get('/', 'home.index');
+  router.get('/details', 'details.index');
 
   // 提交post csrf
   router.get('/post', controller.post.index);
   router.post('/post', controller.post.add);
+  router.get('/postde', controller.post.deleteCookies);
 
-  // restful
-  router.post('api/v1/user', 'v1.user.create');
+  // api
+  router.get('/api/v1/blogs', 'api.v1.blogs.index');
+  // admin
+  router.get('/admin/login', 'admin.login.index');
+  router.get('/admin/register', 'admin.login.add');
 };
