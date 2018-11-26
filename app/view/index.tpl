@@ -11,7 +11,7 @@
 <body>
 {% for item in list%}
   <li>
-    <p>标题:{{item.title}}</p>
+    <p>标题:<a href="/details?aid={{item.aid}}">{{item.title}}</a></p>
     <p>
       <span>作者:{{item.username}}</span>
       <span>时间:{{ helper.format(item.dateline) }}</span>

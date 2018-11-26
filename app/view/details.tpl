@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-  details 
+  <p>{{list.title}}</p>
+  <p>{{list.content | safe}}</p>
 </body>
 </html>
