@@ -24,8 +24,8 @@ module.exports = appInfo => {
   // middleware config
   config.robot = {
     ip: [
-      '127.0.0.1',
-      '192.168.0.1',
+      '127.0.0.2',
+      '192.168.31.48',
     ],
   };
 
