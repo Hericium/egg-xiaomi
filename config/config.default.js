@@ -6,8 +6,13 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1542984541094_5475';
 
-  // add your config here
-  config.middleware = [];
+
+  config.session = {
+    key: 'SESSION_ID',
+    maxAge: 864000,
+    encrypt: true,
+    renew: true, // 延长会话有效期(刷新延长)
+  };
 
   // 配置ejs
   config.view = {

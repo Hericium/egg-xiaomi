@@ -1,13 +1,31 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const BaseController = require('../../core/base.js');
 
-class LoginController extends Controller {
+class LoginController extends BaseController {
   async index() {
-    this.ctx.body = '登录';
+    this.ctx.body = '主页';
   }
-  async add() {
-    this.ctx.body = '注册';
+
+  async login() {
+    await this.ctx.render('admin/login.tpl', {
+
+    });
+  }
+
+  async register() {
+    await this.ctx.render('admin/register.tpl', {
+
+    });
+  }
+
+  async doLogin() {
+    await this.error2('/');
+  }
+
+  async doRegister() {
+    console.log(this.ctx.request.body);
+    await this.error2('/doLogin');
   }
 }
 

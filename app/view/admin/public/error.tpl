@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="refresh" content="3;url={{ redirectUrl }}">
   <title>Document</title>
 </head>
 <body>
-  <p>{{list.title}}</p>
-  <p>{{list.content | safe}}</p>
-  {{name}}
-  {{username}}
+  出错 
 </body>
 </html>

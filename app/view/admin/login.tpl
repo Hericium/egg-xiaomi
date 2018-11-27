@@ -7,9 +7,10 @@
   <title>Document</title>
 </head>
 <body>
-  <p>{{list.title}}</p>
-  <p>{{list.content | safe}}</p>
-  {{name}}
-  {{username}}
+  <form action="/doLogin" method="post">
+    姓名：<input type="text" name='name'>
+    密码：<input type="password" name='pwd'>
+    <button type="submit">提交</button>
+  </form> 
 </body>
 </html>
