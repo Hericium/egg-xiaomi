@@ -6,7 +6,7 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1542984541094_5475';
 
-
+  // session
   config.session = {
     key: 'SESSION_ID',
     maxAge: 864000,
@@ -49,7 +49,13 @@ module.exports = appInfo => {
       'http://localhost:8080',
     ],
   };
-
+  // mongoose
+  config.mongoose = {
+    client: {
+      url: 'mongodb://root:pp123456@ds038888.mlab.com:38888/mongo',
+      options: {},
+    },
+  };
 
   // 接口api
   config.api = 'http://www.phonegap100.com/';
