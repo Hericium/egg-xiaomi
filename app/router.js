@@ -23,6 +23,7 @@ module.exports = app => {
 
   // api(api 目录结构)
   router.get('/api/v1/blogs', 'api.v1.blogs.index');
+  router.get('/api/v1/alloylever', 'api.v1.alloylever.index');
 
   // admin(封装中间件)
   router.get('/admin', 'admin.login.index');
