@@ -9,6 +9,7 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
+  // 设置模板引擎
   config.view = {
     defaultViewEngine: 'nunjucks',
     mapping: {
