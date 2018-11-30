@@ -6,9 +6,19 @@
 module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
-
-  // admin
-  router.resources('admin/managers', '/admin/managers', controller.admin.managers);
-  router.resources('admin/access', '/admin/access', controller.admin.access);
-  router.resources('admin/role', '/admin/role', controller.admin.role);
+  // admin =====================================
+  // login
+  router.get('/admin/login', 'admin.login.index');
+  // manager
+  router.get('/admin/manager/index', 'admin.manager.index');
+  router.get('/admin/manager/add', 'admin.manager.add');
+  router.get('/admin/manager/edit', 'admin.manager.edit');
+  // access
+  router.get('/admin/access/index', 'admin.access.index');
+  router.get('/admin/access/add', 'admin.access.add');
+  router.get('/admin/access/edit', 'admin.access.edit');
+  // role
+  router.get('/admin/role/index', 'admin.role.index');
+  router.get('/admin/role/add', 'admin.role.add');
+  router.get('/admin/role/edit', 'admin.role.edit');
 };
