@@ -25,7 +25,8 @@ class LoginController extends Controller {
     if (this.ctx.session.code.toUpperCase() === verify.toUpperCase()) {
       const result = await this.ctx.model.Admin.find({ username, password }); // 实用外部方法，先考虑await
       if (result.length > 0) {
-        this.ctx.session.userinfo = result[0];
+        console.log(result);
+        this.ctx.session.userinfo = result[0]; // 去数组对象里的第一个对象
         this.ctx.redirect('/admin/manager/index');
       } else {
         console.log('用户不存在');
@@ -33,6 +34,12 @@ class LoginController extends Controller {
     } else {
       console.log('验证码错误');
     }
+  }
+
+  // 登出
+  async doLoginOut() {
+    this.ctx.session.userinfo = null;
+    this.ctx.redirect('/admin/login');
   }
 
 }

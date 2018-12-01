@@ -13,6 +13,7 @@ module.exports = app => {
   router.get('/admin/login', 'admin.login.index');
   router.get('/admin/captcha', 'admin.login.captcha');
   router.post('/admin/doLogin', 'admin.login.doLogin');
+  router.get('/admin/doLoginOut', 'admin.login.doLoginOut');
   // manager
   router.get('/admin/manager/index', 'admin.manager.index');
   router.get('/admin/manager/add', 'admin.manager.add');
