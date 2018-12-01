@@ -17,6 +17,7 @@ class LoginController extends Controller {
   // 2. 对比用户名和密码
   // 3. 对比用户名和密码
   // 4. 保存用户session
+
   async doLogin() {
     const data = this.ctx.request.body;
     let { username, password, verify } = data;
