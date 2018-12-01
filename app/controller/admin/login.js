@@ -1,5 +1,6 @@
 'use strict';
 
+const utils = require('utility'); // 引入工具类
 
 const Controller = require('egg').Controller;
 
@@ -12,9 +13,26 @@ class LoginController extends Controller {
     await this.ctx.service.utils.verify();
   }
   // 登录
+  // 1. 判断验证码
+  // 2. 对比用户名和密码
+  // 3. 对比用户名和密码
+  // 4. 保存用户session
   async doLogin() {
     const data = this.ctx.request.body;
-    const { username, password, verify } = data;
+    let { username, password, verify } = data;
+    password = utils.md5(password);
+    console.log(password);
+    if (this.ctx.session.code.toUpperCase() === verify.toUpperCase()) {
+      const result = await this.ctx.model.Admin.find({ username, password }); // 实用外部方法，先考虑await
+      if (result.length > 0) {
+        this.ctx.session.userinfo = result[0];
+        this.ctx.redirect('/admin/manager/index');
+      } else {
+        console.log('用户不存在');
+      }
+    } else {
+      console.log('验证码错误');
+    }
   }
 
 }
