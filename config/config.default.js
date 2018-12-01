@@ -26,5 +26,12 @@ module.exports = appInfo => {
     },
   };
 
+  // 设置数据库配置
+  config.mongoose = {
+    client: {
+      url: 'mongo ds038888.mlab.com:38888/mongo -u root -p <dbpassword>',
+      options: {},
+    },
+  };
   return config;
 };
