@@ -23,12 +23,10 @@ class LoginController extends BaseController {
     const data = this.ctx.request.body;
     let { username, password, verify } = data;
     password = utils.md5(password);
-    console.log(password);
     if (this.ctx.session.code.toUpperCase() === verify.toUpperCase()) {
       const result = await this.ctx.model.Admin.find({ username, password }); // 实用外部方法，先考虑await
       if (result.length > 0) {
-        console.log(result);
-        this.ctx.session.userinfo = result[0]; // 去数组对象里的第一个对象
+        this.ctx.session.userinfo = result[0]; // 取数组对象里的第一个对象
         // this.ctx.redirect('/admin/manager/index');
         await this.success('/admin/manager/index', '登录成功');
       } else {
