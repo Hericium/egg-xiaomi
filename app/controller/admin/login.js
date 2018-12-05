@@ -2,9 +2,9 @@
 
 const utils = require('utility'); // 引入工具类
 
-const Controller = require('egg').Controller;
+const BaseController = require('./base');
 
-class LoginController extends Controller {
+class LoginController extends BaseController {
   async index() {
     await this.ctx.render('admin/login');
   }
@@ -12,6 +12,7 @@ class LoginController extends Controller {
   async captcha() {
     await this.ctx.service.utils.verify();
   }
+
   // 登录
   // 1. 判断验证码
   // 2. 对比用户名和密码
@@ -28,12 +29,13 @@ class LoginController extends Controller {
       if (result.length > 0) {
         console.log(result);
         this.ctx.session.userinfo = result[0]; // 去数组对象里的第一个对象
-        this.ctx.redirect('/admin/manager/index');
+        // this.ctx.redirect('/admin/manager/index');
+        await this.success('/admin/manager/index', '登录成功');
       } else {
-        console.log('用户不存在');
+        await this.error('/admin/login', '用户不存在');
       }
     } else {
-      console.log('验证码错误');
+      await this.error('/admin/login', '验证码错误');
     }
   }
 
