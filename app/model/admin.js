@@ -15,7 +15,6 @@ module.exports = app => {
     add_time: {
       type: Number,
       default: d.getTime(),
-
     },
     is_super: { type: Number },
   });

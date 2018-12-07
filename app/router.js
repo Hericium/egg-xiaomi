@@ -25,5 +25,7 @@ module.exports = app => {
   // role
   router.get('/admin/role/index', 'admin.role.index');
   router.get('/admin/role/add', 'admin.role.add');
+  router.post('/admin/role/doAdd', 'admin.role.doAdd');
   router.get('/admin/role/edit', 'admin.role.edit');
+  router.post('/admin/role/doEdit', 'admin.role.doEdit');
 };
