@@ -9,6 +9,8 @@ module.exports = app => {
 
 
   // admin =====================================
+  // 删除
+  router.get('/admin/base/delete', 'admin.base.delete');
   // login
   router.get('/admin/login', 'admin.login.index');
   router.get('/admin/captcha', 'admin.login.captcha');
@@ -17,7 +19,9 @@ module.exports = app => {
   // manager
   router.get('/admin/manager/index', 'admin.manager.index');
   router.get('/admin/manager/add', 'admin.manager.add');
+  router.post('/admin/manager/doAdd', 'admin.manager.doAdd');
   router.get('/admin/manager/edit', 'admin.manager.edit');
+  router.post('/admin/manager/doEdit', 'admin.manager.doEdit');
   // access
   router.get('/admin/access/index', 'admin.access.index');
   router.get('/admin/access/add', 'admin.access.add');

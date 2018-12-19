@@ -21,6 +21,18 @@ class BaseController extends Controller {
       message: message || '操作成功!',
     });
   }
+
+  // 删除方法
+  async delete() {
+    // 1.获取要删除的Model
+    // 2.获取要删除数据的id
+    // 3.执行删除
+    // 4. 返回
+    const { model, _id } = this.ctx.request.query;
+    await this.ctx.model[model].deleteOne({ _id });
+    this.ctx.redirect(this.ctx.locals.prePage);
+
+  }
 }
 
 module.exports = BaseController;

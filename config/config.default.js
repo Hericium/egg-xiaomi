@@ -16,9 +16,9 @@ module.exports = appInfo => {
   };
 
   // add your config here
-  config.middleware = [ ];
+  config.middleware = [ 'auth' ];
   config.auth = {
-    // match: '/admin',
+    match: '/admin',
   };
 
   // 设置模板引擎

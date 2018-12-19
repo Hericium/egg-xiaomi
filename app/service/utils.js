@@ -1,4 +1,5 @@
 'use strict';
+const utils = require('utility'); // 引入工具类
 
 const svgCaptcha = require('svg-captcha'); // 引入svg验证
 const Service = require('egg').Service;
@@ -20,6 +21,10 @@ class UtilsService extends Service {
     this.ctx.response.type = 'image/svg+xml';
     this.ctx.body = captcha.data;
     return this.ctx.body;
+  }
+
+  async md5(password) {
+    return utils.md5(password);
   }
 }
 
