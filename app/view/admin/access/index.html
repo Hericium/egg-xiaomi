@@ -17,6 +17,7 @@
                         </div>
                     </form>
                 </div>
+
             </div>
             <!--
                 列表展示
@@ -49,7 +50,10 @@
                                 <td>{{item.url}}</td>
                                 <td>{{item.sort}}</td>
                                 <td>{{item.description}}</td>
-                                <td class="text-center">修改  删除</td>
+                                <td class="text-center">
+                                    <a href="edit?_id={{item._id}}">修改</a>
+                                    <a>删除</a>
+                                </td>
                             </tr>
                             {% for items in item.items %}
                             <tr>
@@ -65,7 +69,10 @@
                                  <td>{{items.url}}</td>
                                  <td>{{items.sort}}</td>
                                  <td>{{items.description}}</td>
-                                 <td class="text-center">修改  删除</td>
+                                 <td class="text-center">
+                                     <a href="edit?_id={{items._id}}">修改</a>
+                                     <a>删除</a>
+                                 </td>
                              </tr>
                          {% endfor %}
                         {% endfor %}

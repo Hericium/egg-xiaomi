@@ -19,7 +19,6 @@ class AccessController extends BaseController {
         },
       },
     ]);
-    console.log(doc);
     await this.ctx.render('admin/access/index', {
       doc,
     }
@@ -43,11 +42,24 @@ class AccessController extends BaseController {
   }
 
   async edit() {
-    await this.ctx.render('admin/access/edit');
+    const _id = this.ctx.request.query._id;
+    const queryDoc = await this.ctx.model.Access.find({ _id });
+    // 为0的模块
+    const doc = await this.ctx.model.Access.find({ module_id: '0' }) || [];
+    await this.ctx.render('admin/access/edit', {
+      doc,
+      queryDoc,
+    });
   }
 
   async doEdit() {
-    await this.ctx.render('admin/access/edit');
+    const _id = this.ctx.request.query._id;
+    const doc = this.ctx.request.body;
+    if (doc.module_id) {
+      doc.module_id = this.app.mongoose.Types.ObjectId(doc.module_id);
+    }
+    await this.ctx.model.Access.updateOne({ _id }, doc);
+    await this.success('index');
   }
 }
 
