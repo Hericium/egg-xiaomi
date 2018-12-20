@@ -34,7 +34,11 @@
                     <tr>
                         <td>{{ item.title }}</td>
                         <td>{{item.description}}</td>
-                        <td class="text-center"><a href="edit?_id={{item.id}}">修改</a> <a href="/admin/base/delete?model=Role&_id={{item.id}}">删除</a></td>
+                        <td class="text-center">
+                            <a href="edit?_id={{item.id}}">修改</a>
+                            <a href="/admin/base/delete?model=Role&_id={{item.id}}">删除</a>
+                            <a href="auth?_id={{item.id}}">添加权限</a>
+                        </td>
                     </tr>
                     {% endfor %}
                     </tbody>

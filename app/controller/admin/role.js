@@ -45,6 +45,36 @@ class RoleController extends BaseController {
     });
     await this.success('index');
   }
+
+  async auth() {
+    const _id = this.ctx.request.query;
+    // 显示access 的数据
+    const doc = await this.ctx.model.Access.aggregate([
+      {
+        $lookup: {
+          from: 'accesses',
+          localField: '_id',
+          foreignField: 'module_id',
+          as: 'items',
+        },
+      },
+      {
+        $match: {
+          module_id: '0',
+        },
+      },
+    ]);
+    await this.ctx.render('admin/role/auth', {
+      doc,
+      _id,
+    });
+  }
+  async doAuth() {
+    const _id = this.ctx.request.query;
+    const access_node = this.ctx.request.body;
+    console.log(access_node);
+  }
+
 }
 
 module.exports = RoleController;

@@ -1,0 +1,41 @@
+
+        {% extends '../public/base.html' %}
+        {% block main%}
+        <div class="col-sm-10">
+                <div class="panel panel-default">              
+                    <div class="panel-heading">
+                      增加商品
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive input-form">
+                            <form action="doAuth?_id={{_id}}" method="post">
+        <div class="col-sm-10">
+            <table class="table table-bordered">
+                {% for item in doc %}
+                                <tr>
+                                    <td align="right" style="background: #D8E2FA; padding-right: 10px; width: 150px;">
+                                        <label>
+                                            <input type="checkbox" class="module_cbo" value="{{item._id}}" name="access_node[]">&nbsp;&nbsp;
+                                            {{item.module_name}}
+                                        </label>
+                                    </td>
+                                    <td>
+                                        {% for items in item.items %}
+                                        &nbsp;&nbsp;
+                                            <label>
+                                                <input type="checkbox" class="action_cbo" value="{{items._id}}" name="access_node[]">
+                                                &nbsp;&nbsp;{{items.action_name}}
+                                            </label>
+                                        {% endfor %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                    </table>
+                    <button type="submit" class="btn btn-default">提交</button>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+       {% endblock %} 
