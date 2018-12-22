@@ -15,7 +15,7 @@
                                 <tr>
                                     <td align="right" style="background: #D8E2FA; padding-right: 10px; width: 150px;">
                                         <label>
-                                            <input type="checkbox" class="module_cbo" value="{{item._id}}" name="access_node[]">&nbsp;&nbsp;
+                                            <input {% if item.checked %} checked {% endif %} type="checkbox" class="module_cbo" value="{{item._id}}" name="access_node[]">&nbsp;&nbsp;
                                             {{item.module_name}}
                                         </label>
                                     </td>
@@ -23,7 +23,7 @@
                                         {% for items in item.items %}
                                         &nbsp;&nbsp;
                                             <label>
-                                                <input type="checkbox" class="action_cbo" value="{{items._id}}" name="access_node[]">
+                                                <input {% if items.checked %} checked {% endif %} type="checkbox" class="action_cbo" value="{{items._id}}" name="access_node[]">
                                                 &nbsp;&nbsp;{{items.action_name}}
                                             </label>
                                         {% endfor %}

@@ -6,7 +6,9 @@ const BaseController = require('./base');
 
 class LoginController extends BaseController {
   async index() {
-    await this.ctx.render('admin/login');
+    await this.ctx.render('admin/login', {
+      doc: this.ctx.locals.userinfo,
+    });
   }
   // 图片验证码
   async captcha() {

@@ -1,8 +1,9 @@
 'use strict';
 const url = require('url');
-module.exports = options => {
+module.exports = () => {
   return async function auth(ctx, next) {
     ctx.locals.prePage = ctx.request.headers.referer;
+    ctx.locals.userinfo = ctx.session.userinfo;
     if (ctx.session.userinfo) {
       await next();
     } else {
