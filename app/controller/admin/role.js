@@ -48,7 +48,6 @@ class RoleController extends BaseController {
 
   async auth() {
     const { _id } = this.ctx.request.query;
-    console.log(_id);
     // RoleAccess
     const docRole = await this.ctx.model.RoleAccess.find({
       role_id: _id,

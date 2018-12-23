@@ -32,6 +32,46 @@ class AccessService extends Service {
     }
     return false;
   }
+
+  async meum() {
+    const { role_id } = this.ctx.locals.userinfo;
+    // RoleAccess
+    const docRole = await this.ctx.model.RoleAccess.find({
+      role_id,
+    });
+    const access_ids = [];
+    docRole.forEach(item => {
+      access_ids.push(item.access_id.toString());
+    });
+    // Access  判断
+    const doc = await this.ctx.model.Access.aggregate([
+      {
+        $lookup: {
+          from: 'accesses',
+          localField: '_id',
+          foreignField: 'module_id',
+          as: 'items',
+        },
+      },
+      {
+        $match: {
+          module_id: '0',
+        },
+      },
+    ]);
+    doc.forEach(item => {
+      if (access_ids.includes(item._id.toString())) {
+        item.checked = true;
+      }
+      item.items.forEach(item1 => {
+        if (access_ids.includes(item1._id.toString())) {
+          item1.checked = true;
+        }
+      });
+    });
+    return doc;
+  }
+
 }
 
 module.exports = AccessService;

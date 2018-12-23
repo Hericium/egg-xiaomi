@@ -5,12 +5,14 @@ module.exports = () => {
     ctx.locals.prePage = ctx.request.headers.referer;
     ctx.locals.userinfo = ctx.session.userinfo;
     if (ctx.session.userinfo) {
-      const result = await ctx.service.access.authAccess();
-      if (result) {
-        await next();
-      } else {
-        ctx.body = '没有权限';
-      }
+      // const result = await ctx.service.access.authAccess();
+      const doc = await ctx.service.access.meum();
+      ctx.locals.meum = doc;
+      // if (result) {
+      await next();
+      // } else {
+      // ctx.body = '没有权限';
+      // }
     } else {
       const pathname = url.parse(ctx.request.url).pathname;
       // 如果直接写else 会死循环
