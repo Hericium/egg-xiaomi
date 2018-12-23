@@ -17,7 +17,10 @@ module.exports = app => {
       type: Date,
       default: Date.now,
     },
-    is_super: { type: Number },
+    is_super: {
+      type: Number,
+      default: 0,
+    },
   });
 
   return mongoose.model('Admin', AdminSchema);

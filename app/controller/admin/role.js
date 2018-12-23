@@ -83,7 +83,6 @@ class RoleController extends BaseController {
         }
       });
     });
-    console.log(doc);
     await this.ctx.render('admin/role/auth', {
       doc,
       _id,
