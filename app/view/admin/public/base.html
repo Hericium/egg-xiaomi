@@ -49,8 +49,10 @@
 				{% endif %}
          			<ul>
 					{% for items in item.items %}
-						{% if items.checked %}
+						{% if items.checked  %}
+						{% if items.type == 2 %}
 						 <li class="list-group-item"> <a href="{{items.url}}">{{items.action_name}}</a></li>
+						{% endif %}
 						{% endif %}
 					{% endfor %}
          			</ul>

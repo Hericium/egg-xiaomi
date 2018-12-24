@@ -27,10 +27,13 @@ class AccessService extends Service {
 
     // Access  判断
     const doc = await this.ctx.model.Access.find({ url: pathname });
-    if (access_ids.includes(doc[0]._id.toString())) {
-      return true;
+    if (doc.length > 0) {
+      if (access_ids.includes(doc[0]._id.toString())) {
+        return true;
+      }
+      return false;
     }
-    return false;
+    return true;
   }
 
   async meum() {
