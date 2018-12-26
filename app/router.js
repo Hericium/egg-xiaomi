@@ -11,6 +11,7 @@ module.exports = app => {
   // admin =====================================
   // 删除
   router.get('/admin/base/delete', 'admin.base.delete');
+  router.get('/admin/base/changeStatus', 'admin.base.changeStatus');
   // login
   router.get('/admin/login', 'admin.login.index');
   router.get('/admin/captcha', 'admin.login.captcha');

@@ -33,6 +33,21 @@ class BaseController extends Controller {
     this.ctx.redirect(this.ctx.locals.prePage);
 
   }
+  async changeStatus() {
+    const { model, _id, status } = this.ctx.request.query;
+    const doc = await this.ctx.model[model].findByIdAndUpdate(_id, { status });
+    if (doc) {
+      this.ctx.body = {
+        message: 'success',
+        code: 0,
+      };
+    } else {
+      this.ctx.body = {
+        message: 'fail',
+        code: -1,
+      };
+    }
+  }
 }
 
 module.exports = BaseController;
