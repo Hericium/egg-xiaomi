@@ -44,7 +44,6 @@ class LoginController extends BaseController {
     this.ctx.session.userinfo = null;
     this.ctx.redirect('/admin/login');
   }
-
 }
 
 module.exports = LoginController;

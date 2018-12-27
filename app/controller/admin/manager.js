@@ -13,7 +13,6 @@ class ManagerController extends BaseController {
         as: 'role',
       },
     }]);
-
     await this.ctx.render('admin/manager/index', {
       doc: manageDoc,
     });

@@ -17,8 +17,13 @@
 
 <script>
   function changeStatus(model, _id, status) {
+        console.log(model, _id, status);
     $.get('/admin/base/changeStatus',{model,  _id, status},function(data){
-        console.log(data);
+        if(data.status === 0){
+            $('.btn-admin').text('已启用');
+        }else {
+            $('.btn-admin').text('已禁用');
+        }
     }) 
   }
 </script>

@@ -29,6 +29,11 @@ module.exports = appInfo => {
     },
   };
 
+  // config/config.default.js
+  config.multipart = {
+    mode: 'file',
+  };
+
   // 设置数据库配置
   config.mongoose = {
     client: {

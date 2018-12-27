@@ -40,6 +40,7 @@ class BaseController extends Controller {
       this.ctx.body = {
         message: 'success',
         code: 0,
+        status: doc.status,
       };
     } else {
       this.ctx.body = {

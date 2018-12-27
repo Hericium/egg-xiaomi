@@ -41,10 +41,10 @@
                         <td>{{item.mobile}}</td>
                        <td>{{item.email}}</td>
                         <td>{{item.role[0].title}}</td>
-                        {% if item.role[0].status == 0 %}
-                            <td onclick="changeStatus('Admin','{{item._id}}', 1)" class='btn-admin'>已禁用</td>
+                        {% if item.status === 0 %}
+                            <td onclick="changeStatus('Admin','{{item._id}}', '{{item.status}}')" class='btn-admin'>已禁用</td>
                         {% else %}
-                            <td onclick="changeStatus('Admin','{{item._id}}', 0)" class='btn-admin'>已启用</td>
+                            <td onclick="changeStatus('Admin','{{item._id}}', '{{item.status}}')" class='btn-admin'>已启用</td>
                         {% endif %}
                         <td class="text-center">
                             <a href="edit?_id={{item._id}}">修改</a>  <a href="/admin/base/delete?model=Admin&_id={{item._id}}">删除</a>

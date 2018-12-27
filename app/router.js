@@ -37,4 +37,7 @@ module.exports = app => {
   router.post('/admin/role/doEdit', 'admin.role.doEdit');
   router.get('/admin/role/auth', 'admin.role.auth');
   router.post('/admin/role/doAuth', 'admin.role.doAuth');
+  // upload
+  router.get('/admin/upload/upload', 'admin.upload.upload');
+  router.post('/admin/upload/doUpload', 'admin.upload.doUpload');
 };
