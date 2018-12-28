@@ -29,11 +29,6 @@ module.exports = appInfo => {
     },
   };
 
-  // config/config.default.js
-  config.multipart = {
-    mode: 'file',
-  };
-
   // 设置数据库配置
   config.mongoose = {
     client: {
@@ -41,5 +36,23 @@ module.exports = appInfo => {
       options: {},
     },
   };
+
+  // oss
+  config.oss = {
+    client: {
+      accessKeyId: 'LTAI9mhx93Lm99W2',
+      accessKeySecret: 'q9smSq0j36WvfjxH1K7xcFWbmn9ZM1',
+      bucket: 'pxw-egg',
+      endpoint: 'oss-cn-hangzhou.aliyuncs.com',
+      timeout: '60s',
+    },
+  };
+
+  // stream
+  config.multipart = {
+    fileExtensions: [ '.pdf' ], // 增加对 apk 扩展名的文件支持
+  };
+
   return config;
+
 };

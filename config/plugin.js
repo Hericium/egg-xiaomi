@@ -13,3 +13,9 @@ exports.mongoose = {
   enable: true,
   package: 'egg-mongoose',
 };
+
+// config/plugin.js
+exports.oss = {
+  enable: true,
+  package: 'egg-oss',
+};
