@@ -1,8 +1,3 @@
 'use strict';
 const moment = require('moment');
-moment().format();
-
-module.exports = {
-  foo(param) {
-  },
-};
+exports.format = time => moment(new Date(time * 1000)).format('YYYY-MM-DD HH:mm');
