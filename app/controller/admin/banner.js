@@ -1,11 +1,17 @@
 'use strict';
 const sendToWormhole = require('stream-wormhole');
-const Controller = require('egg').Controller;
-class UploadController extends Controller {
+const BaseController = require('./base');
+class UploadController extends BaseController {
+  async index() {
+    const doc = await this.ctx.model.Banner.find() || [];
+    console.log(doc);
+    await this.ctx.render('/admin/banner/index',{
+        doc
+      }
+    );
+  } 
   async add() {
-    await this.ctx.render('/admin/upload/add', {
-
-    });
+    await this.ctx.render('/admin/banner/add');
   }
 
   async doAdd() {
@@ -48,8 +54,9 @@ class UploadController extends Controller {
         [fieldname]: result && result.url,
       });
     }
-    console.log(files, 123);
-    console.log('and we are done parsing the form!');
+    const { undefined, _csrf, ...useful } = files;
+    await this.ctx.model.Banner(useful).save();
+    await this.success('index');
   }
 }
 

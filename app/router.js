@@ -38,6 +38,7 @@ module.exports = app => {
   router.get('/admin/role/auth', 'admin.role.auth');
   router.post('/admin/role/doAuth', 'admin.role.doAuth');
   // banner
+  router.get('/admin/banner/index', 'admin.banner.index');
   router.get('/admin/banner/add', 'admin.banner.add');
   router.post('/admin/banner/doAdd', 'admin.banner.doAdd');
 };
