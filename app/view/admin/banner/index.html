@@ -55,9 +55,9 @@
                         {% else %}
                             <td>关闭</td>
                         {% endif %}
-                        <td>{{format(item.add_time)}}</td>
+                        <td>{{helper.format(item.add_time)}}</td>
                         <td class="text-center">
-                            <a href="edit?_id={{item._id}}">修改</a>  <a href="/admin/base/delete?model=Admin&_id={{item._id}}">删除</a>
+                            <a href="edit?_id={{item._id}}">修改</a> <a href="/admin/base/delete?model=Banner&_id={{item._id}}">删除</a>
                         </td>
                     </tr>
                     {% endfor %}

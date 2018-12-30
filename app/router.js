@@ -41,4 +41,6 @@ module.exports = app => {
   router.get('/admin/banner/index', 'admin.banner.index');
   router.get('/admin/banner/add', 'admin.banner.add');
   router.post('/admin/banner/doAdd', 'admin.banner.doAdd');
+  router.get('/admin/banner/edit', 'admin.banner.edit');
+  router.post('/admin/banner/doEdit', 'admin.banner.doEdit');
 };
