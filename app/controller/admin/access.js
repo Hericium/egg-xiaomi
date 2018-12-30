@@ -34,7 +34,8 @@ class AccessController extends BaseController {
 
   async doAdd() {
     const doc = this.ctx.request.body;
-    if (doc.module_id) {
+    console.log(doc);
+    if (doc.module_id !== '0') {
       doc.module_id = this.app.mongoose.Types.ObjectId(doc.module_id);
     }
     await this.ctx.model.Access(doc).save();
