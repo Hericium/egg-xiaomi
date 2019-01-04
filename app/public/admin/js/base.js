@@ -18,9 +18,9 @@ const app = {
       $(this).siblings('ul').slideToggle();
     });
   },
-  changeStatus(el, model, attr, id) {
-    $.get('/admin/changeStatus', { model, attr, id }, function(data) {
-      if (data.success) {
+  changeStatus(el, model, attr, _id) {
+    $.get('/admin/base/changeStatus', { model, attr, _id }, function(data) {
+      if (data.code === 0) {
         if (el.src.indexOf('yes') != -1) {
           el.src = '/public/admin/images/no.gif';
         } else {

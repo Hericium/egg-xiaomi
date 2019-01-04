@@ -33,13 +33,26 @@ class BaseController extends Controller {
     this.ctx.redirect(this.ctx.locals.prePage);
   }
   async changeStatus() {
-    const { model, _id, status } = this.ctx.request.query;
-    const doc = await this.ctx.model[model].findByIdAndUpdate(_id, { status });
-    if (doc) {
+    const { model, attr, _id } = this.ctx.request.query;
+    console.log('model, attr, _id :', model, attr, _id);
+    const doc = await this.ctx.model[model].findById(_id);
+    const { status } = doc;
+    let json = {};
+    if (status) {
+      json = {
+        [attr]: 0,
+      };
+    } else {
+      json = {
+        [attr]: 1,
+      };
+    }
+    const doc1 = await this.ctx.model[model].findOneAndUpdate(_id, json);
+    if (doc1) {
       this.ctx.body = {
         message: 'success',
         code: 0,
-        status: doc.status,
+        status: doc1.status,
       };
     } else {
       this.ctx.body = {
@@ -54,12 +67,11 @@ class BaseController extends Controller {
     const doc = await this.ctx.model[model].findByIdAndUpdate(_id, {
       [attr]: num,
     });
-    console.log('doc :', doc);
     if (doc) {
       this.ctx.body = {
         message: 'success',
         code: 0,
-        status: doc.status,
+        status: doc.sort,
       };
     } else {
       this.ctx.body = {

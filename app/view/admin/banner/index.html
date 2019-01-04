@@ -51,9 +51,9 @@
                         <td>{{item.link}}</td>
                         <td onclick="app.editNum(this,'Banner','sort','{{item._id}}')">{{item.sort}}</td>
                         {% if item.status === 1 %}
-                            <td style="text-align: center;"><img src="/public/admin/images/yes.gif" alt=""></td>
+                            <td style="text-align: center;"><img onclick="app.changeStatus(this,'Banner','status','{{item._id}}')" src="/public/admin/images/yes.gif" alt=""></td>
                         {% else %}
-                            <td style="text-align: center;"><img src="/public/admin/images/no.gif" alt=""></td>
+                            <td style="text-align: center;"><img onclick="app.changeStatus(this,'Banner','status','{{item._id}}')" src="/public/admin/images/no.gif" alt=""></td>
                         {% endif %}
                         <td>{{helper.format(item.add_time)}}</td>
                         <td class="text-center">
