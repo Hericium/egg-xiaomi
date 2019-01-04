@@ -42,18 +42,18 @@
                         <td>{{item.title}}</td>
                         {% if item.type === 1 %}
                             <td>网页</td>
-                        {% elseif item.type === 2 %}    
+                        {% elseif item.type === 2 %}     
                             <td>APP</td>
                         {% elseif item.type === 3 %}    
                             <td>小程序</td>
                         {% endif %}
-                       <td><img style="width: 20px;" src="{{item.focus_img}}"/></td>
+                       <td style="width: 50px;"><img style="width: 100%;" src="{{item.focus_img}}"/></td>
                         <td>{{item.link}}</td>
-                        <td>{{item.sort}}</td>
+                        <td onclick="app.editNum(this,'Banner','sort','{{item._id}}')">{{item.sort}}</td>
                         {% if item.status === 1 %}
-                            <td>启用</td>
+                            <td style="text-align: center;"><img src="/public/admin/images/yes.gif" alt=""></td>
                         {% else %}
-                            <td>关闭</td>
+                            <td style="text-align: center;"><img src="/public/admin/images/no.gif" alt=""></td>
                         {% endif %}
                         <td>{{helper.format(item.add_time)}}</td>
                         <td class="text-center">

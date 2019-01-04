@@ -9,9 +9,13 @@ module.exports = app => {
   app.redirect('/', '/admin/login');
 
   // admin =====================================
+  // 公共方法
   // 删除
   router.get('/admin/base/delete', 'admin.base.delete');
+  // 修改状态
   router.get('/admin/base/changeStatus', 'admin.base.changeStatus');
+  // 直接修改内容
+  router.get('/admin/base/editNum', 'admin.base.editNum');
   // login
   router.get('/admin/login', 'admin.login.index');
   router.get('/admin/captcha', 'admin.login.captcha');

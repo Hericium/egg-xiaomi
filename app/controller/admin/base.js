@@ -31,11 +31,30 @@ class BaseController extends Controller {
     const { model, _id } = this.ctx.request.query;
     await this.ctx.model[model].deleteOne({ _id });
     this.ctx.redirect(this.ctx.locals.prePage);
-
   }
   async changeStatus() {
     const { model, _id, status } = this.ctx.request.query;
     const doc = await this.ctx.model[model].findByIdAndUpdate(_id, { status });
+    if (doc) {
+      this.ctx.body = {
+        message: 'success',
+        code: 0,
+        status: doc.status,
+      };
+    } else {
+      this.ctx.body = {
+        message: 'fail',
+        code: -1,
+      };
+    }
+  }
+  async editNum() {
+    const { model, attr, _id, num } = this.ctx.request.query;
+    console.log('model, attr, _id, num :', model, attr, _id, num);
+    const doc = await this.ctx.model[model].findByIdAndUpdate(_id, {
+      [attr]: num,
+    });
+    console.log('doc :', doc);
     if (doc) {
       this.ctx.body = {
         message: 'success',
