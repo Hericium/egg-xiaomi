@@ -79,3 +79,10 @@ input[type=file]{
 .navbar{
 	border-radius: 0px;
 }
+
+.input-form li{
+    margin: 10px 0px;
+    border-bottom: 1px solid #eee; padding: 15px;
+    color: #666;
+}
+    

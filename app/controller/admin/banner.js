@@ -1,7 +1,7 @@
 'use strict';
 const sendToWormhole = require('stream-wormhole');
 const BaseController = require('./base');
-class UploadController extends BaseController {
+class BannerController extends BaseController {
   async index() {
     const doc = await this.ctx.model.Banner.find() || [];
     await this.ctx.render('/admin/banner/index', {
@@ -92,4 +92,4 @@ class UploadController extends BaseController {
   }
 }
 
-module.exports = UploadController;
+module.exports = BannerController;
