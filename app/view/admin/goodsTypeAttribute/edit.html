@@ -1,0 +1,29 @@
+{% extends '../public/base.html' %}
+        {% block main%}
+        <div class="col-sm-10">
+          
+            <div class="panel panel-default">              
+			    <div class="panel-heading">
+                  修改商品类型
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive input-form">
+                        <form method="post" action="doEdit?_id={{doc[0]._id}}">
+                            <ul>
+                                <li>  名　　称: <input type="text" name="title" value="{{doc[0].title}}" /></li>
+                                <li>
+                                    描    述: <textarea name="description" id="" cols="60" rows="8">{{doc[0].description}}</textarea>
+                                </li> 
+                                <li>
+                                    <br/>
+                                    <button type="submit" class="btn btn-default">提交</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        {% endblock %}  

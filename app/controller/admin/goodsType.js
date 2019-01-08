@@ -11,7 +11,6 @@ class GoodsTypeController extends BaseController {
   async add() {
     await this.ctx.render('/admin/goodsType/add');
   }
-
   async doAdd() {
     const doc = this.ctx.request.body;
     console.log('doc :', doc);
