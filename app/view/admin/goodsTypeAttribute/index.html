@@ -8,13 +8,12 @@
                 </div>
                 <div class="panel-body">
                     <form role="form" class="form-inline">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="name">名称</label>
                             <input type="text" class="form-control" id="name" placeholder="请输入名称">
-                        </div>
-
+                        </div> -->
                         <div class="form-group">
-                            <button type="submit" class="btn btn-default">搜索</button>
+                            <button type="submit" class="btn btn-default"><a href="add">添加商品属性</a></button>
                         </div>
                     </form>
                 </div>
@@ -26,9 +25,10 @@
                 <table class="table table-bordered">
                     <thead>
                     <tr class="th">
-                        <th>名称</th>
-                        <th>描  述</th>
-                        <th>状态</th>
+                        <th>属性名称</th>
+                        <th>商品类型</th>
+                        <th>属性值的录入方式</th>
+                        <th>可选值列表</th>
                         <th>添加时间</th>
                         <th class="text-center">操作</th>
                     </tr>
@@ -37,12 +37,15 @@
                     {% for item in doc %}
 					   <tr>
                         <td>{{item.title}}</td>
-                        <td>{{item.description}}</td>
-                        {% if item.status === 1 %}
-                            <td style="text-align: center;"><img onclick="app.changeStatus(this,'GoodsType','status','{{item._id}}')" src="/public/admin/images/yes.gif" alt=""></td>
-                        {% else %}
-                            <td style="text-align: center;"><img onclick="app.changeStatus(this,'GoodsType','status','{{item._id}}')" src="/public/admin/images/no.gif" alt=""></td>
+                        <td>{{item.goods_type[0].title}}</td>
+                        {% if item.attr_type === '1'%}
+                            <td>input</td>
+                        {% elseif item.attr_type === '2' %}
+                            <td>textarea</td>
+                        {% elseif item.attr_type === '3' %}
+                            <td>select</td>
                         {% endif %}
+                        <td>{{item.attr_value}}</td>
                         <td>{{helper.format(item.add_time)}}</td>
                         <td class="text-center">
                             <a href="edit?_id={{item._id}}">修改</a>
@@ -50,7 +53,6 @@
                         </td>
                     </tr>
                     {% endfor %}
-
                     </tbody>
                 </table>
             </div>
