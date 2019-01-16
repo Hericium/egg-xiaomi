@@ -10,18 +10,18 @@
                     <div class="table-responsive input-form">
                         <form method="post" action="doEdit">
                             <ul>
-                                <li>  　属性名称： <input type="text" name="title" value="{{doc[0].title}}"/></li> 
+                                <li>  　属性名称： <input type="text" name="title" value="{{docType[0].title}}"/></li> 
                                 <li>  　所属类型：
                                     <select name="cate_id" id="cate_id">
-                                        {% for item in doc %}   
-                                            <option value="{{item._id}}">{{item.title}}</option>
+                                        {% for item in docAttr %}   
+                                            <option value="{{item._id}}" {% if item._id.toString() === docType[0].cate_id.toString() %} selected {% endif %}>{{item.title}}</option>
                                         {% endfor %}    
                                     </select>
                                 </li> 
                                 <li>   　录入方式：
-                                        <input type="radio" name="attr_type" value="1" checked="true" id="text" /><label for="text">单行文本框</label> 　
-                                        <input type="radio" name="attr_type" value="2" id="textarea" /><label for="textarea">多行文本框</label> 　
-                                        <input type="radio" name="attr_type" value="3"  id="select" /><label for="select">从下面的列表中选择（一行代表一个可选值）</label>　
+                                        <input type="radio" name="attr_type" {% if docType[0].attr_type.toString() === '1' %} checked {% endif %}  value="1" id="text" /><label for="text">单行文本框</label> 　
+                                        <input type="radio" name="attr_type" {% if docType[0].attr_type.toString() ==='2' %} checked {% endif %} value="2" id="textarea" /><label for="textarea">多行文本框</label> 　
+                                        <input type="radio" name="attr_type"{% if docType[0].attr_type.toString() === '3' %} checked {% endif %} value="3"  id="select" /><label for="select">从下面的列表中选择（一行代表一个可选值）</label>　
                                 </li> 
                                 <li>
                                     可选值列表：

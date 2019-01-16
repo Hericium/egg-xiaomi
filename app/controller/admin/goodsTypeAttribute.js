@@ -19,14 +19,14 @@ class GoodsTypeAttributeController extends BaseController {
         },
       },
     ]);
-
     await this.ctx.render('/admin/goodsTypeAttribute/index', {
       doc,
     });
   }
   async add() {
+    const { _id } = this.ctx.request.query;
+    console.log('_id :', _id);
     const doc = await this.ctx.model.GoodsType.find() || [];
-    console.log('doc :', doc);
     await this.ctx.render('/admin/goodsTypeAttribute/add', {
       doc,
     });
@@ -39,25 +39,12 @@ class GoodsTypeAttributeController extends BaseController {
 
   async edit() {
     const { _id } = this.ctx.request.query;
-    const doc = await this.ctx.model.GoodsTypeAttribute.aggregate([
-      {
-        $lookup: {
-          from: 'goodstypes',
-          localField: 'cate_id',
-          foreignField: '_id',
-          as: 'goods_type',
-        },
-      },
-      // 匹配到这个数据库下的和_id 相同的
-      {
-        $match: {
-          _id: this.app.mongoose.Types.ObjectId(_id),
-        },
-      },
-    ]);
-    console.log('doc :', doc);
+    const docType = await this.ctx.model.GoodsTypeAttribute.find({ _id });
+    const docAttr = await this.ctx.model.GoodsType.find() || [];
+    console.log('docType, docAttr :', docType);
     await this.ctx.render('/admin/goodsTypeAttribute/edit', {
-      doc,
+      docType,
+      docAttr,
     });
   }
   async doEdit() {
